@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Đọc ảnh chứa bảng mạch
-image = cv2.imread(r'D:\Python\opencv\cpu.jpg')
+image = cv2.imread(r'D:\Python\opencv\cpuNG.jpg')
 image = cv2.resize(image, (640, 480))
 # Tiền xử lý ảnh
 threshold_width = 100
