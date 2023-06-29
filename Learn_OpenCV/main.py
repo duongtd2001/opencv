@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-path = r'D:\Python\opencv\Image_ssd.bmp'
+path = r'D:\Python\opencv\cpu.jpg'
 image = cv2.imread(path)
 image_resize = cv2.resize(image, (1280, 720))
 
@@ -32,12 +32,12 @@ rotation_image = cv2.warpAffine(
 
 
 # áp dụng ngưỡng
-_, thresholed_image = cv2.threshold(gray_image, 70, 255, cv2.THRESH_BINARY)
+#_, thresholed_image = cv2.threshold(gray_image, 100,128, cv2.THRESH_BINARY)
 
 # làm mờ ảnh
-blur_image = cv2.GaussianBlur(thresholed_image, (3, 3), 0)
+#blur_image = cv2.GaussianBlur(gray_image, (1,1), 0)
 # phát hiện biên với Canny
-canny_image = cv2.Canny(blur_image, 50, 70)
+canny_image = cv2.Canny(gray_image, 75,120)
 
 # phát hiện biên với Sobel
 '''gradient_x = cv2.Sobel(blur_image, cv2.CV_64F, 1, 0, ksize=3)
@@ -52,7 +52,7 @@ edges = cv2.threshold(gradient_magnitude, threshold, 255, cv2.THRESH_BINARY)[1]'
 cv2.imshow('image', image_resize)
 
 # ảnh làm mờ
-cv2.imshow('image_blur', blur_image)
+#cv2.imshow('image_blur', blur_image)
 
 # ảnh tăng độ sáng
 cv2.imshow('canny_image', canny_image)
